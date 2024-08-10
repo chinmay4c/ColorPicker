@@ -19,9 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const g = parseInt(selectedColor.substr(3, 2), 16);
         const b = parseInt(selectedColor.substr(5, 2), 16);
         const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-        colorDisplay.style.color = (yiq >= 128) ? 'black' : 'white';
+        colorDisplay.style.color = (yiq >= 128) ? '#2c3e50' : '#ecf0f1';
     });
 
+    // Copy color to clipboard
     copyColorBtn.addEventListener('click', function() {
         const selectedColor = colorValue.textContent;
         navigator.clipboard.writeText(selectedColor).then(function() {
@@ -34,9 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Functionality for the second section (Input a Color Value)
     showColorBtn.addEventListener('click', function() {
         const colorValue = colorInput.value;
-        colorBox.style.backgroundColor = colorValue;
-
-        // Validate input
         if (/^#[0-9A-F]{6}$/i.test(colorValue)) {
             colorBox.style.backgroundColor = colorValue;
         } else {
