@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const applyColorBtn = document.getElementById('applyColor');
     const colorDisplay = document.getElementById('colorDisplay');
     const colorValue = document.getElementById('colorValue');
-    const copyColorBtn = document.createElement('button');
+    const copyColorBtn = document.getElementById('copyColor');
+    const colorInput = document.getElementById('colorInput');
+    const showColorBtn = document.getElementById('showColor');
+    const colorBox = document.getElementById('colorBox');
 
-    copyColorBtn.id = 'copyColor';
-    copyColorBtn.textContent = 'Copy Color';
-    colorDisplay.appendChild(copyColorBtn);
-
+    // Functionality for the first section (Choose a Color)
     applyColorBtn.addEventListener('click', function() {
         const selectedColor = colorPicker.value;
         colorDisplay.style.backgroundColor = selectedColor;
@@ -29,5 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }, function(err) {
             alert('Failed to copy color: ', err);
         });
+    });
+
+    // Functionality for the second section (Input a Color Value)
+    showColorBtn.addEventListener('click', function() {
+        const colorValue = colorInput.value;
+        colorBox.style.backgroundColor = colorValue;
+
+        // Validate input
+        if (/^#[0-9A-F]{6}$/i.test(colorValue)) {
+            colorBox.style.backgroundColor = colorValue;
+        } else {
+            alert('Please enter a valid hex color code.');
+            colorBox.style.backgroundColor = 'transparent';
+        }
     });
 });

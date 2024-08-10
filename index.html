@@ -8,25 +8,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>Advanced Color Picker</h1>
+        <h1>Color Picker & Visualizer</h1>
         <div class="sections">
             <!-- Section 1: Choose Color -->
-            <div class="section">
-                <h2>Choose a Color</h2>
-                <input type="color" id="colorPicker" value="#000000">
-                <button id="applyColor">Get Color Value</button>
+            <div class="section" id="pickerSection">
+                <h2>Pick a Color</h2>
+                <input type="color" id="colorPicker" value="#ff6347">
+                <button id="applyColor">Show Color Value</button>
                 <div id="colorDisplay" class="color-display">
-                    <p>Color Value: <span id="colorValue">#000000</span></p>
-                    <button id="copyColor">Copy Value</button>
+                    <p>Hex Value: <span id="colorValue">#ff6347</span></p>
+                    <button id="copyColor">Copy Hex</button>
                 </div>
             </div>
             <!-- Section 2: Input Color Value -->
-            <div class="section">
-                <h2>Enter a Color Value</h2>
-                <input type="text" id="colorInput" placeholder="#000000">
-                <button id="showColor">Show Color</button>
+            <div class="section" id="inputSection">
+                <h2>Enter Hex Value</h2>
+                <input type="text" id="colorInput" placeholder="#ff6347">
+                <button id="showColor">Visualize Color</button>
                 <div id="visualizeColor" class="color-visualizer">
-                    <p>Visualized Color:</p>
+                    <p>Preview:</p>
                     <div id="colorBox" class="color-box"></div>
                 </div>
             </div>

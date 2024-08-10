@@ -1,61 +1,64 @@
 /* Universal Styles */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
+
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: radial-gradient(circle, #ff9a9e, #fad0c4, #fad0c4);
-    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #2c3e50;
     overflow: hidden;
+    padding: 1rem;
 }
 
-/* Container with smooth entry animation */
+/* Container with drop shadow and animations */
 .container {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #ffffff;
     padding: 2rem;
     border-radius: 25px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-out;
-    max-width: 800px;
-    width: 90%;
+    max-width: 900px;
+    width: 100%;
+    animation: fadeIn 1.2s ease-out, slideIn 0.6s ease-out;
 }
 
+/* Animations */
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(30px); }
+    100% { transform: translateY(0); }
 }
 
 /* Header Styling */
 h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
+    font-size: 3rem;
     margin-bottom: 2rem;
+    color: #34495e;
 }
 
-/* Sections Styling */
+/* Sections */
 .sections {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-/* Individual Section Styling */
+/* Section Styling */
 .section {
-    background: #fff;
+    background: #ecf0f1;
     padding: 1.5rem;
     border-radius: 20px;
     width: 45%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    position: relative;
 }
 
 .section:hover {
@@ -64,21 +67,22 @@ h1 {
 }
 
 h2 {
-    font-size: 1.75rem;
-    color: #34495e;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
+    color: #2c3e50;
+    border-left: 4px solid #3498db;
+    padding-left: 0.5rem;
 }
 
-/* Inputs Styling */
+/* Input Styles */
 input[type="color"],
 input[type="text"] {
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
     border-radius: 10px;
     border: 2px solid #ddd;
     font-size: 1rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -101,7 +105,7 @@ button {
     cursor: pointer;
     border-radius: 10px;
     font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -117,22 +121,26 @@ button:active {
 /* Color Display Styling */
 .color-display,
 .color-visualizer {
-    margin-top: 1rem;
-    padding: 1rem;
+    margin-top: 1.5rem;
+    padding: 1.25rem;
     border-radius: 10px;
     background-color: rgba(240, 240, 240, 0.9);
-    border: 2px solid #ccc;
+    border: 2px solid #ddd;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.color-display:hover,
+.color-visualizer:hover {
+    transform: scale(1.05);
 }
 
 .color-display p,
 .color-visualizer p {
     margin: 0;
     font-size: 1.25rem;
-    color: #34495e;
+    color: #2c3e50;
 }
 
 /* Color Box for Visualizer */
@@ -141,17 +149,18 @@ button:active {
     height: 100px;
     margin: 1rem auto;
     border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
     border: 2px solid #3498db;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    background-color: transparent;
 }
 
 .color-box:hover {
     transform: scale(1.1);
 }
 
-/* Copy Color Button */
+/* Copy Button */
 #copyColor {
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
     background-color: #2ecc71;
 }
 
@@ -159,7 +168,7 @@ button:active {
     background-color: #27ae60;
 }
 
-/* Responsive Design for smaller screens */
+/* Responsive Design */
 @media (max-width: 768px) {
     .section {
         width: 100%;
